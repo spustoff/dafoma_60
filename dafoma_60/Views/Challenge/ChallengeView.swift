@@ -781,3 +781,4 @@ struct StatisticRowView: View {
     ChallengeView()
         .environmentObject(ChallengeViewModel())
 }
+

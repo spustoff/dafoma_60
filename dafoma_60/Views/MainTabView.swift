@@ -17,6 +17,7 @@ struct MainTabView: View {
         TabView {
             RecipeDiscoveryView()
                 .environmentObject(recipeViewModel)
+                .environmentObject(challengeViewModel)
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Recipes")
@@ -53,3 +54,4 @@ struct MainTabView: View {
         .accentColor(.primaryRed)
     }
 }
+

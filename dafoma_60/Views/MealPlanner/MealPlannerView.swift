@@ -290,3 +290,4 @@ struct MealPlanStatView: View {
     MealPlannerView()
         .environmentObject(MealPlannerViewModel())
 }
+

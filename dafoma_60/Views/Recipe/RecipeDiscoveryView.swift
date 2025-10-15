@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeDiscoveryView: View {
     @EnvironmentObject var viewModel: RecipeViewModel
+    @EnvironmentObject var challengeViewModel: ChallengeViewModel
     @State private var showingFilters = false
     @State private var selectedRecipe: Recipe?
     
@@ -58,6 +59,7 @@ struct RecipeDiscoveryView: View {
             .sheet(item: $selectedRecipe) { recipe in
                 RecipeDetailView(recipe: recipe)
                     .environmentObject(viewModel)
+                    .environmentObject(challengeViewModel)
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ShowRecipeDetail"))) { notification in
@@ -404,3 +406,4 @@ struct LoadingView: View {
     RecipeDiscoveryView()
         .environmentObject(RecipeViewModel())
 }
+

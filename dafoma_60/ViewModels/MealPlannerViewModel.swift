@@ -169,3 +169,4 @@ class MealPlannerViewModel: ObservableObject {
         mealPlans.insert(duplicated, at: 0)
     }
 }
+

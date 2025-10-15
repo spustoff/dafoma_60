@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeDetailView: View {
     let recipe: Recipe
     @EnvironmentObject var viewModel: RecipeViewModel
+    @EnvironmentObject var challengeViewModel: ChallengeViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedTab = 0
     
@@ -70,31 +71,29 @@ struct RecipeDetailView: View {
                 }
                 , alignment: .top
             )
-            .overlay(
+//            .overlay(
                 // Start Cooking button
-                VStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        // In a real app, this would navigate to cooking mode
-                        // For now, we'll just mark it as completed
-                        if let challengeViewModel = try? EnvironmentObject<ChallengeViewModel>().wrappedValue {
-                            challengeViewModel.completeRecipe(recipe)
-                        }
-                    }) {
-                        Text("Start Cooking")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 50)
-                            .background(Color.successGreen)
-                            .cornerRadius(25)
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 34)
-                }
-            )
+//                VStack {
+//                    Spacer()
+//                    
+//                    Button(action: {
+//                        // In a real app, this would navigate to cooking mode
+//                        // For now, we'll just mark it as completed
+//                        challengeViewModel.completeRecipe(recipe)
+//                    }) {
+//                        Text("Start Cooking")
+//                            .font(.headline)
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(.white)
+//                            .frame(maxWidth: .infinity)
+//                            .frame(height: 50)
+//                            .background(Color.successGreen)
+//                            .cornerRadius(25)
+//                    }
+//                    .padding(.horizontal)
+//                    .padding(.bottom, 34)
+//                }
+//            )
         }
     }
 }
@@ -409,3 +408,4 @@ struct NutritionRowView: View {
     RecipeDetailView(recipe: Recipe.sampleRecipes[0])
         .environmentObject(RecipeViewModel())
 }
+

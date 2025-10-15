@@ -456,3 +456,4 @@ struct ContactRowView: View {
     RestaurantDetailView(restaurant: Restaurant.sampleRestaurants[0])
         .environmentObject(RestaurantExplorerViewModel())
 }
+

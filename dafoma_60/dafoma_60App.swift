@@ -51,7 +51,7 @@ struct FortGourmetMuseApp: App {
     
     private func check_data() {
         
-        let lastDate = "15.10.2025"
+        let lastDate = "21.10.2025"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"

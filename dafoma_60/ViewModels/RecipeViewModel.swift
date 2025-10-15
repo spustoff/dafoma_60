@@ -119,3 +119,4 @@ class RecipeViewModel: ObservableObject {
         recipes.filter { $0.cookingTime <= 30 }.sorted { $0.cookingTime < $1.cookingTime }
     }
 }
+

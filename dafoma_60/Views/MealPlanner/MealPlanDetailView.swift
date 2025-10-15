@@ -532,3 +532,4 @@ struct MealPlanActionsView: View {
     MealPlanDetailView(mealPlan: MealPlan.sampleMealPlans[0])
         .environmentObject(MealPlannerViewModel())
 }
+

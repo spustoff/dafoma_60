@@ -413,3 +413,4 @@ struct ChallengeBadgeSection: View {
     ChallengeDetailView(challenge: CookingChallenge.sampleChallenges[0])
         .environmentObject(ChallengeViewModel())
 }
+
