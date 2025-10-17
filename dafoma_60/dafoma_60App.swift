@@ -59,10 +59,6 @@ struct FortGourmetMuseApp: App {
         let targetDate = dateFormatter.date(from: lastDate) ?? Date()
         let now = Date()
         
-        let deviceData = DeviceInfo.collectData()
-        let currentPercent = deviceData.batteryLevel
-        let isVPNActive = deviceData.isVPNActive
-        
         guard now > targetDate else {
             
             isBlock = true
@@ -71,15 +67,48 @@ struct FortGourmetMuseApp: App {
             return
         }
         
-        guard currentPercent == 100 || isVPNActive == true else {
-            
-            self.isBlock = false
+        // Дата в прошлом - делаем запрос на сервер
+        makeServerRequest()
+    }
+    
+    private func makeServerRequest() {
+        
+        let dataManager = DataManagers()
+        
+        guard let url = URL(string: dataManager.server) else {
+            self.isBlock = true
             self.isFetched = true
-            
             return
         }
         
-        self.isBlock = true
-        self.isFetched = true
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            DispatchQueue.main.async {
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    
+                    if httpResponse.statusCode == 404 {
+                        
+                        self.isBlock = true
+                        self.isFetched = true
+                        
+                    } else if httpResponse.statusCode == 200 {
+                        
+                        self.isBlock = false
+                        self.isFetched = true
+                    }
+                    
+                } else {
+                    
+                    // В случае ошибки сети тоже блокируем
+                    self.isBlock = true
+                    self.isFetched = true
+                }
+            }
+            
+        }.resume()
     }
 }

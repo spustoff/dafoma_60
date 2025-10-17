@@ -5,7 +5,7 @@
 //  Created by Вячеслав on 10/9/25.
 //
 
-struct DataManager {
+struct DataManagers {
     
     let server: String = "https://fortgourmetmuse.site/fzFD1hBp"
 }

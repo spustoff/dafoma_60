@@ -261,12 +261,6 @@ struct AboutView: View {
                             )
                             
                             FeatureRow(
-                                icon: "brain.head.profile",
-                                title: "AI Meal Planner",
-                                description: "Get personalized meal plans based on your preferences"
-                            )
-                            
-                            FeatureRow(
                                 icon: "map.fill",
                                 title: "Restaurant Explorer",
                                 description: "Find and explore nearby restaurants with reviews"

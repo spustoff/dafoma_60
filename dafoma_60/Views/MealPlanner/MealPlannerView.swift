@@ -67,31 +67,6 @@ struct AIGeneratorCard: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack {
-                        Image(systemName: "brain.head.profile")
-                            .font(.title2)
-                            .foregroundColor(.successGreen)
-                        
-                        Text("AI Meal Planner")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.textPrimary)
-                    }
-                    
-                    Text("Generate personalized meal plans based on your preferences and dietary needs")
-                        .font(.subheadline)
-                        .foregroundColor(.textSecondary)
-                        .lineLimit(3)
-                }
-                
-                Spacer()
-                
-                Image(systemName: "arrow.right.circle.fill")
-                    .font(.title)
-                    .foregroundColor(.successGreen)
-            }
             
             if viewModel.isGenerating {
                 HStack {
