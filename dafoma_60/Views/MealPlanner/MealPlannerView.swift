@@ -37,14 +37,6 @@ struct MealPlannerView: View {
             }
             .navigationTitle("Meal Planner")
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showingGenerator = true }) {
-                        Image(systemName: "plus")
-                            .foregroundColor(.primaryRed)
-                    }
-                }
-            }
             .sheet(isPresented: $showingGenerator) {
                 MealPlanGeneratorView()
                     .environmentObject(viewModel)
